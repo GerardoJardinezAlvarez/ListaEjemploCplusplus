@@ -1,18 +1,19 @@
 #pragma once
 #include <string>
+using namespace std;
 
 class Nodo {
 private:
-    std::string dato;
+    string dato;
     Nodo* siguiente;
 
 public:
-    Nodo(std::string dato, Nodo* siguiente);
-    Nodo(std::string dato);
+    Nodo(string dato, Nodo* siguiente);
+    Nodo(string dato);
     Nodo();
 
-    std::string getDato() const;
-    void setDato(std::string dato);
+    string getDato() const;
+    void setDato(string dato);
 
     Nodo* getSiguiente() const;
     void setSiguiente(Nodo* siguiente);

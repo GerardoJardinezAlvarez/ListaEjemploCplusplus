@@ -1,8 +1,9 @@
 #include "Lista.h"
 #include "ListaVaciaExcepcion.h"
 #include <iostream>
+using namespace std;
 
-Lista::Lista(std::string nombre) {
+Lista::Lista(string nombre) {
     this->nombre = nombre;
     primero = ultimo = nullptr;
 }
@@ -12,7 +13,7 @@ Lista::Lista() {
     primero = ultimo = nullptr;
 }
 
-Lista::Lista(std::string dato, std::string nombre) {
+Lista::Lista(string dato, string nombre) {
     this->nombre = nombre;
     primero = ultimo = new Nodo(dato);
 }
@@ -30,7 +31,7 @@ bool Lista::estaVacia() const {
     return primero == nullptr;
 }
 
-void Lista::InsertarUltimo(std::string elemento) {
+void Lista::InsertarUltimo(string elemento) {
     if (estaVacia()) {
         primero = ultimo = new Nodo(elemento);
     }
@@ -41,7 +42,7 @@ void Lista::InsertarUltimo(std::string elemento) {
     }
 }
 
-void Lista::InsertarPrimero(std::string elemento) {
+void Lista::InsertarPrimero(string elemento) {
     if (estaVacia()) {
         primero = ultimo = new Nodo(elemento);
     }
@@ -50,12 +51,12 @@ void Lista::InsertarPrimero(std::string elemento) {
     }
 }
 
-std::string Lista::BorrarPrimero() {
+string Lista::BorrarPrimero() {
     if (estaVacia()) {
         throw ListaVaciaExcepcion(nombre);
     }
 
-    std::string ElementoBorrado = primero->getDato();
+    string ElementoBorrado = primero->getDato();
     Nodo* nodoABorrar = primero;
 
     if (primero == ultimo) {
@@ -69,12 +70,12 @@ std::string Lista::BorrarPrimero() {
     return ElementoBorrado;
 }
 
-std::string Lista::BorrarUltimo() {
+string Lista::BorrarUltimo() {
     if (estaVacia()) {
         throw ListaVaciaExcepcion(nombre);
     }
 
-    std::string ElementoBorrado = ultimo->getDato();
+    string ElementoBorrado = ultimo->getDato();
     Nodo* nodoABorrar = ultimo;
 
     if (primero == ultimo) {
@@ -95,16 +96,16 @@ std::string Lista::BorrarUltimo() {
 
 void Lista::Imprimir() const {
     if (estaVacia()) {
-        std::cout << "La lista " << nombre << " esta vacia.\n";
+        cout << "La lista " << nombre << " esta vacia.\n";
         return;
     }
 
-    std::cout << "Lista " << nombre << "\n";
+    cout << "Lista " << nombre << "\n";
     Nodo* actual = primero;
 
     while (actual != nullptr) {
-        std::cout << actual->getDato() << "\n";
+        cout << actual->getDato() << "\n";
         actual = actual->getSiguiente();
     }
-    std::cout << "\n";
+    cout << "\n";
 }
