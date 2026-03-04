@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Lista.h"
 #include "ListaVaciaExcepcion.h"
+using namespace std;
 
 int main() {
     try {
@@ -14,15 +15,15 @@ int main() {
         lista.InsertarUltimo("Natasha");
         lista.InsertarPrimero("Claudia Marissa");
 
-        std::string borrado = lista.BorrarUltimo();
-        std::cout << borrado << " ha sido borrada de la lista.\n";
+        string borrado = lista.BorrarUltimo();
+        cout << borrado << " ha sido borrada de la lista.\n";
 
         lista.BorrarPrimero();
         lista.Imprimir();
 
     }
     catch (const ListaVaciaExcepcion& e) {
-        std::cerr << "Error: " << e.what() << "\n";
+        cerr << "Error: " << e.what() << "\n";
     }
 
     return 0;
